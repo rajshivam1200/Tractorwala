@@ -1,0 +1,133 @@
+
+/* Hero 5: Strengths */
+.hero-5 {
+  padding: 80px 5%;
+  background: rgba(189, 211, 245, 0.056);
+}
+
+.hero-5 h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 40px;
+}
+
+.strengths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.strength {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  justify-content: space-evenly;
+}
+
+.strength:hover {
+  transform: translateY(-5px);
+}
+
+.strength h3 {
+  font-size: 1.3rem;
+  color: #17442b;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.strength h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #f9d923;
+}
+
+.strength p {
+  font-size: 1rem;
+  color: #555555;
+  margin-top: 8px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.strength:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back face */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* FRONT */
+.card-front {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.card-front h3 {
+  font-size: 1.3rem;
+  color: #17442b;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.card-front h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #f9d923;
+}
+
+.card-front p {
+  font-size: 1rem;
+  color: #555555;
+  margin-top: 8px;
+}
+
+/* BACK */
+.card-back {
+  transform: rotateY(180deg);
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

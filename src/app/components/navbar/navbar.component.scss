@@ -1,0 +1,432 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #2c3e50;
+    padding: 10px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 1.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+/* Logo Styles */
+.navbar-logo .logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.navbar-logo:hover .logo {
+    transform: scale(1.05);
+}
+
+/* Desktop Navigation Menu */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto; 
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    font-size: 14px;
+    overflow: hidden;
+   
+}
+
+/* SVG Icon Styles */
+.nav-item svg {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+    stroke: currentColor;
+}
+
+/* Span Label Styles */
+.nav-item span {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+/* Hover Effects for Nav Items */
+.nav-item:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.nav-item:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-item:hover svg {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 0 0.5rem;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none;
+}
+
+.mobile-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: White;
+}
+
+.mobile-toggle:hover {
+    background: #f1f5f9;
+    color: #667eea;
+}
+
+.mobile-toggle svg {
+    transition: transform 0.3s ease;
+}
+
+.mobile-toggle:hover svg {
+    transform: rotate(90deg);
+}
+
+.mobile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 1rem 0;
+    min-width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-toggle:focus + .mobile-dropdown,
+.mobile-dropdown:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #64748b;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0 0.5rem;
+    border-radius: 8px;
+}
+
+.mobile-item svg {
+    margin-right: 12px;
+    transition: all 0.3s ease;
+}
+
+.mobile-item span {
+    transition: all 0.3s ease;
+}
+
+.mobile-item:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .mobile-dropdown {
+        right: 1rem;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        min-height: 60px;
+    }
+
+    .navbar-logo .logo {
+        height: 35px;
+    }
+
+    .mobile-dropdown {
+        right: 0.5rem;
+        min-width: 200px;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Additional Hover Effects */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+    border-radius: 12px;
+}
+
+.nav-item:hover::before {
+    left: 100%;
+}
+
+/* Active State */
+.nav-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+}
+
+.nav-item.active span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-item.active svg {
+    color: #fbbf24;
+}
+        /* Progress Bar Styles */
+        .progress-container {
+            position: sticky;
+            top: 80px; /* Adjust based on navbar height */
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #fbbf24 100%);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Progress Bar Percentage Display */
+        .progress-percentage {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1001;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .progress-percentage.hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .mobile-item:hover svg {
+            color: #fbbf24;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .mobile-dropdown {
+                right: 1rem;
+                min-width: 220px;
+            }
+
+            .progress-container {
+                top: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-container {
+                min-height: 60px;
+            }
+
+            .navbar-logo .logo {
+                height: 35px;
+            }
+
+            .mobile-dropdown {
+                right: 0.5rem;
+                min-width: 200px;
+            }
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }

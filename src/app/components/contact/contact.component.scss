@@ -1,0 +1,232 @@
+/* ---------- Contact Container ---------- */
+.contact-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 32px;
+   background: rgba(189, 211, 245, 0.056);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+}
+
+.contact-container h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: black;
+}
+
+.helper-text {
+  font-size: 16px;
+  color: #3a3333;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ---------- Form Fields ---------- */
+.form-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 16px 16px;
+  border: 1px solid rgba(8, 8, 8, 0.534);
+  border-radius: 12px;
+  font-size: 16px;
+  background: transparent;
+  color: black;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+textarea {
+  min-height: 110px;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
+}
+
+/* ---------- Floating Labels ---------- */
+label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-size: 15px;
+  color: #353434;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+input:focus + label,
+textarea:focus + label,
+input:valid + label,
+textarea:valid + label {
+  top: -12px;
+  left: 12px;
+  font-size: 13px;
+  background: linear-gradient(135deg, #3b83f6d8, #9233ead8);
+  padding: 0 7px;
+  color: #ebedf0;
+  border-radius: 4px;
+}
+
+/* ---------- Submit Button ---------- */
+button {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 22px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+  width: 100%;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Desktop: 1025px and up */
+@media (min-width: 1025px) {
+  .contact-container {
+    max-width: 600px;
+    padding: 32px;
+    margin: 40px auto;
+  }
+  .contact-container h2 {
+    font-size: 28px;
+  }
+  .helper-text {
+    font-size: 16px;
+  }
+  input,
+  textarea {
+    font-size: 16px;
+    padding: 16px 16px;
+  }
+  button {
+    font-size: 17px;
+    padding: 16px 22px;
+  }
+}
+
+/* Tablet: 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-container {
+    max-width: 90vw;
+    padding: 24px;
+    margin: 30px auto;
+  }
+  .contact-container h2 {
+    font-size: 24px;
+  }
+  .helper-text {
+    font-size: 15px;
+  }
+  input,
+  textarea {
+    font-size: 15px;
+    padding: 14px 14px;
+  }
+  button {
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+}
+
+/* Mobile: up to 768px */
+@media (max-width: 768px) {
+  .contact-container {
+    max-width: 98vw;
+    padding: 16px;
+    margin: 16px auto;
+  }
+  .contact-container h2 {
+    font-size: 20px;
+  }
+  .helper-text {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  input,
+  textarea {
+    font-size: 10px;
+    padding: 10px 10px;
+  }
+  button {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+/* Extra Small Mobile: up to 480px */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 8px;
+    margin: 8px auto;
+  }
+  .contact-container h2 {
+    font-size: 17px;
+  }
+  .helper-text {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 18px 8px;
+  }
+  button {
+    font-size: 12px;
+    padding: 8px 8px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: green;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}

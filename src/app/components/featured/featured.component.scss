@@ -1,0 +1,158 @@
+/* Base Styles (Desktop-first) */
+.featured-section {
+  padding: 80px 60px;
+  text-align: center;
+  background-color: #f9fafb;
+}
+
+.featured-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+}
+
+.car-box {
+  display: flex;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.car-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.car-img {
+  flex-shrink: 0;
+  width: 40%;
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+.car-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.car-img:hover img {
+  transform: scale(1.1);
+}
+
+.car-info {
+  padding: 20px;
+  text-align: left;
+  flex: 1;
+  color: #f9fafb;
+}
+
+.car-info h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.car-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.car-info button {
+  margin-top: 16px;
+  padding: 12px 28px;
+  background-color: #f0c140e1;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.car-info button:hover {
+  background-color: #0078d7;
+}
+
+/* Tablet (600px–1023px) */
+@media (max-width: 1023px) {
+  .featured-section {
+    padding: 60px 40px;
+  }
+  .featured-section h2 {
+    font-size: 2.25rem;
+  }
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .car-box {
+    max-width: 400px;
+  }
+  .car-info h3 {
+    font-size: 1.4rem;
+  }
+  .car-info p {
+    font-size: 0.95rem;
+  }
+  .car-info button {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile (≤599px) */
+@media (max-width: 599px) {
+  .featured-section {
+    padding: 40px 20px;
+  }
+  .featured-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+  .car-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .car-box {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .car-img {
+    width: 100%;
+    height: auto;
+  }
+  .car-img img {
+    height: 200px;
+    object-fit: cover;
+  }
+  .car-info {
+    padding: 16px;
+  }
+  .car-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .car-info p {
+    font-size: 0.9rem;
+  }
+  .car-info button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
