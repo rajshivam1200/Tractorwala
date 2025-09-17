@@ -29,4 +29,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages             # the branch the action will deploy to
-          folder: dist/tractorwala     # this should match the folder under dist that your build generates
+          folder: dist/angular_app/browser     # this should match the folder under dist that your build generates
