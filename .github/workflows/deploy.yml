@@ -1,0 +1,32 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # or your default branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        # pass correct base-href. Replace <username> and <repo> with your own
+        run: npm run build -- --configuration=production --base-href "https://rajshivam1200.github.io/tractorwala/"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages             # the branch the action will deploy to
+          folder: dist/tractorwala     # this should match the folder under dist that your build generates
