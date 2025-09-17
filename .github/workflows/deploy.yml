@@ -3,11 +3,12 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - main   # or your default branch
-  workflow_dispatch:   # 👈 allows manual deployment
+      - main   # auto deploy
+  workflow_dispatch:   # manual deploy trigger
 
 jobs:
-  build_and_deploy:
+  auto_deploy:
+    if: github.event_name == 'push'   # only run on push
     runs-on: ubuntu-latest
 
     steps:
@@ -29,4 +30,33 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/angular_app/browser   # 👈 adjust if your dist folder name differs
+          folder: dist/angular_app/browser
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+
+  manual_deploy:
+    if: github.event_name == 'workflow_dispatch'   # only run manually
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build -- --configuration=production --base-href "https://rajshivam1200.github.io/tractorwala/"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/angular_app/browser
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
